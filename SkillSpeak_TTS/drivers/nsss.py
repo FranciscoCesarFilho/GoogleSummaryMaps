@@ -42,7 +42,7 @@ class NSSpeechDriver(NSObject):
         yield
 
     @objc.python_method
-    def speak(self, text):
+    def say(self, text):
         self._proxy.setBusy(True)
         self._completed = True
         self._proxy.notify('started-utterance')

@@ -6,6 +6,7 @@ import time # importando s biblioteca para o Time
 import SkillSpeak_TTS
 
 
+# função que define os parametros da voz
 def result_speak(text):
     engine = SkillSpeak_TTS.init() # criando o objeto engine
     voices = engine.getProperty('voices')       # pegando uma lista de vozes
@@ -13,8 +14,8 @@ def result_speak(text):
     rate = engine.getProperty('rate')   # pegando a velocidae da voz            
     engine.setProperty('rate', rate-50) # definindo a velocidade da voz
     print(f"Result: {text}") # mostrando o resultado
-    engine.speak(text) # falando o resultado
-    engine.start() # iniciando a voz
+    engine.say(text) # falando o resultado
+    engine.runAndWait() # iniciando a voz
 
 
 def main():
@@ -39,10 +40,10 @@ def main():
     resumo = driver.find_element(By.CLASS_NAME, "wEvh0b").text
     resumo = resumo.replace(". ", ", ")
 
-    print(resumo) # exibindo o resultado
-
     # encerrando a pesquisa
     driver.quit()
+
+    result_speak(resumo) # exibindo o resultado
 
 # inicia a função principal do programa
 if __name__ == "__main__":

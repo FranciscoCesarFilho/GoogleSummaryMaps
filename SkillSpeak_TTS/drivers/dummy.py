@@ -87,7 +87,7 @@ class DummyDriver(object):
         self._proxy.setBusy(False)
         yield
 
-    def speak(self, text):
+    def say(self, text):
         '''
         Speaks the given text. Generates the following notifications during
         output:

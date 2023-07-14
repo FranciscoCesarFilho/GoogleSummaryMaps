@@ -87,7 +87,7 @@ class Engine(object):
         if len(arr) == 0:
             del self._connects[topic]
 
-    def speak(self, text, name=None):
+    def say(self, text, name=None):
         """
         Adds an utterance to speak to the event queue.
 
@@ -100,7 +100,7 @@ class Engine(object):
         if text == None:
             return "Argument value can't be none or empty"
         else:
-            self.proxy.speak(text, name)
+            self.proxy.say(text, name)
 
     def stop(self):
         """
@@ -168,7 +168,7 @@ class Engine(object):
         """
         self.proxy.setProperty(name, value)
 
-    def start(self):
+    def runAndWait(self):
         """
         Runs an event loop until all commands queued up until this method call
         complete. Blocks during the event loop and returns when the queue is
@@ -180,7 +180,7 @@ class Engine(object):
             raise RuntimeError('run loop already started')
         self._inLoop = True
         self._driverLoop = True
-        self.proxy.start()
+        self.proxy.runAndWait()
 
     def startLoop(self, useDriverLoop=True):
         """

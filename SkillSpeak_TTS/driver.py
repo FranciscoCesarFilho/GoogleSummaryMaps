@@ -123,7 +123,7 @@ class DriverProxy(object):
         '''
         return self._busy
 
-    def speak(self, text, name):
+    def say(self, text, name):
         '''
         Called by the engine to push a say command onto the queue.
 
@@ -183,7 +183,7 @@ class DriverProxy(object):
         '''
         self._push(self._driver.setProperty, (name, value))
 
-    def start(self):
+    def runAndWait(self):
         '''
         Called by the engine to start an event loop, process all commands in
         the queue at the start of the loop, and then exit the loop.

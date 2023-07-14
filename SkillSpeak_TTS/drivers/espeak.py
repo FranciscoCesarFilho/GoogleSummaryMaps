@@ -48,7 +48,7 @@ class EspeakDriver(object):
     def destroy(self):
         _espeak.SetSynthCallback(None)
 
-    def speak(self, text):
+    def say(self, text):
         self._proxy.setBusy(True)
         self._proxy.notify('started-utterance')
         _espeak.Synth(toUtf8(text), flags=_espeak.ENDPAUSE |

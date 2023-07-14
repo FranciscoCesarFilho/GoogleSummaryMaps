@@ -49,7 +49,7 @@ class SAPI5Driver(object):
     def destroy(self):
         self._tts.EventInterests = 0
 
-    def speak(self, text):
+    def say(self, text):
         self._proxy.setBusy(True)
         self._proxy.notify('started-utterance')
         self._speaking = True
