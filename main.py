@@ -3,6 +3,19 @@ from selenium import webdriver # importando webdriver
 from selenium.webdriver.common.by import By # importando a classe dos elementos da pagina
 import drivers # importando os drivers
 import time # importando s biblioteca para o Time
+import SkillSpeak_TTS
+
+
+def result_speak(text):
+    engine = SkillSpeak_TTS.init() # criando o objeto engine
+    voices = engine.getProperty('voices')       # pegando uma lista de vozes
+    engine.setProperty('voice', voices[0].id)  # definindo a voz padrão do sistema operacional
+    rate = engine.getProperty('rate')   # pegando a velocidae da voz            
+    engine.setProperty('rate', rate-50) # definindo a velocidade da voz
+    print(f"Result: {text}") # mostrando o resultado
+    engine.speak(text) # falando o resultado
+    engine.start() # iniciando a voz
+
 
 def main():
     # definindo uma entrada
