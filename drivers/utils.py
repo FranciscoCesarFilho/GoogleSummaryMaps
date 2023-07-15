@@ -15,9 +15,6 @@ import xml.etree.ElementTree as elemTree
 import zipfile
 from io import BytesIO
 import platform as pf
-
-__author__ = "Yeongbin Jo <iam.yeongbin.jo@gmail.com>"
-
 from typing import AnyStr, Optional
 
 
